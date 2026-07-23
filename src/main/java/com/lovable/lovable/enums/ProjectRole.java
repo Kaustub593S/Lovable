@@ -1,6 +1,6 @@
 package com.lovable.lovable.enums;
 
-public enum MemberRole {
+public enum ProjectRole {
     EDITOR,
     VIEWER
 }

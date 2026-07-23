@@ -1,7 +1,6 @@
 package com.lovable.lovable.enums;
 
-public enum ChatMessageRole {
-
+public enum MessageRole {
     USER,
     ASSISTANT,
     SYSTEM,

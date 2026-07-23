@@ -2,7 +2,7 @@ package com.lovable.lovable.enums;
 
 public enum SubscriptionStatus {
     ACTIVE,
-    TRAILING,
+    TRIALING,
     CANCELED,
     PAST_DUE,
     INCOMPLETE
