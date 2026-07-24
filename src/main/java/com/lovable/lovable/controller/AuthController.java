@@ -20,8 +20,8 @@ import java.math.BigInteger;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private AuthService authService;
-    private UserService userService;
+    private final AuthService authService;
+    private final UserService userService;
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> signup(SignupRequest signupRequest )
