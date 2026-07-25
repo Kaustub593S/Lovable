@@ -8,10 +8,7 @@ import com.lovable.lovable.service.AuthService;
 import com.lovable.lovable.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 
@@ -24,13 +21,13 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<AuthResponse> signup(SignupRequest signupRequest )
+    public ResponseEntity<AuthResponse> signup(@RequestBody SignupRequest signupRequest )
     {
         return ResponseEntity.ok(authService.signup(signupRequest));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(LoginRequest loginRequest )
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest )
     {
         return ResponseEntity.ok(authService.login(loginRequest));
     }
