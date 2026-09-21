@@ -35,7 +35,7 @@ public class AuthController {
     @GetMapping("/me")
     public ResponseEntity<UserProfileResponse> getProfile()
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=100L;
         return ResponseEntity.ok(userService.getProfile(userId));
 
     }

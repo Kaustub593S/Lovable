@@ -1,10 +1,8 @@
 package com.lovable.lovable.entity;
 
 import com.lovable.lovable.enums.ProjectRole;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigInteger;
 import java.time.Instant;
@@ -13,12 +11,21 @@ import java.time.Instant;
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Builder
+@Table(name="project-member")
 public class ProjectMember {
 
+    @EmbeddedId
     private ProjectMemberId projectMemberId;
-    private Project projectId;
-    private User userId;
+    @ManyToOne
+    @MapsId("projectId")
+    private Project project;
+    @ManyToOne
+    @MapsId("userId")
+    private User user;
+    @Enumerated(EnumType.STRING)
     private ProjectRole role;
-    private BigInteger invitedBy;
+    private Long invitedBy;
     private Instant invitedAt;
 }

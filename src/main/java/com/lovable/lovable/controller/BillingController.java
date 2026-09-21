@@ -26,7 +26,7 @@ public class BillingController {
     @GetMapping("/me/subscription")
     public ResponseEntity<SubscriptionResponse> getMySubscription()
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=100L;
         return ResponseEntity.ok(subscriptionService.getMySubscription(userId));
     }
 
@@ -35,14 +35,14 @@ public class BillingController {
             @RequestBody CheckoutRequest checkoutRequest
     )
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=100L;
         return ResponseEntity.ok(subscriptionService.createCheckoutSessionUrl(userId,checkoutRequest));
     }
 
     @PostMapping("/stripe/portal")
     public ResponseEntity<PortalResponse> openCustomerPortal()
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=100L;
         return ResponseEntity.ok(subscriptionService.openCustomerPortal(userId));
     }
 }

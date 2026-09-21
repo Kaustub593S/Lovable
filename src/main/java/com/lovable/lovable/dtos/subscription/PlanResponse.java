@@ -3,7 +3,7 @@ package com.lovable.lovable.dtos.subscription;
 import java.math.BigInteger;
 
 public record PlanResponse(
-        BigInteger id,
+        Long id,
         String name,
         String stripePriceId,
         Integer maxProjects,

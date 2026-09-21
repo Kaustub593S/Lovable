@@ -13,7 +13,7 @@ import java.time.Instant;
 @Setter
 public class ChatSession {
     private Project projectId;
-    private User userId;
+    private User user;
     private String title;
     private Instant createdAt;
     private Instant updatedAt;

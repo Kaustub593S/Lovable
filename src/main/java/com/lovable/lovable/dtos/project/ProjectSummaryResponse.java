@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.time.Instant;
 
 public record ProjectSummaryResponse(
-        BigInteger id,
+        Long id,
         String name,
         Instant createdAt,
         Instant updatedAt

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigInteger;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,14 +19,14 @@ public class UsageController{
     @GetMapping("/today")
     public ResponseEntity<UsageTodayResponse> getTodaysUsage()
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=100L;
         return ResponseEntity.ok(usageService.getTodaysUsage(userId));
     }
 
     @GetMapping("/limits")
     public ResponseEntity<PlanLimitResponse> getUsageLimit()
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=100L;
         return ResponseEntity.ok(usageService.getCurrentSubscriptionLimits(userId));
     }
 

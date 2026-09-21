@@ -14,9 +14,9 @@ import java.time.Instant;
 @Setter
 public class UsageLog {
 
-    private BigInteger id;
-    private User userId;
-    private Project projectId;
+    private Long id;
+    private User user;
+    private Project project;
     private String action;
     private Integer tokensUsed;
     private Integer durationMs;

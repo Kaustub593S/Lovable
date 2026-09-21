@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -21,16 +20,16 @@ public class FileController {
     private final FileService fileService;
 
     @GetMapping
-    public ResponseEntity<List<FileNode>> getFileTree(@PathVariable BigInteger projectId)
+    public ResponseEntity<List<FileNode>> getFileTree(@PathVariable Long projectId)
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=new Long(String.valueOf(100));
         return ResponseEntity.ok(fileService.getFileTree(userId,projectId));
     }
 
     @GetMapping("/{*path}")
-    public ResponseEntity<FileContentResponse> getFile(@PathVariable BigInteger projectId, @PathVariable String path)
+    public ResponseEntity<FileContentResponse> getFile(@PathVariable Long projectId, @PathVariable String path)
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
+        Long userId=new Long(String.valueOf(100));
         return  ResponseEntity.ok(fileService.getFileContent(userId,projectId,path));
     }
 }

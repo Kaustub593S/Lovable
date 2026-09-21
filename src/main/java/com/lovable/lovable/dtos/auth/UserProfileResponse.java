@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public record UserProfileResponse(
 
-        BigInteger id,
+        Long id,
         String email,
         String name,
         String avatarUrl

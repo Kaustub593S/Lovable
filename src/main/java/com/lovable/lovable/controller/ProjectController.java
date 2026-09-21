@@ -3,14 +3,13 @@ package com.lovable.lovable.controller;
 import com.lovable.lovable.dtos.project.ProjectRequest;
 import com.lovable.lovable.dtos.project.ProjectResponse;
 import com.lovable.lovable.dtos.project.ProjectSummaryResponse;
+import com.lovable.lovable.service.Implementation.ProjectServiceImpl;
 import com.lovable.lovable.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -18,40 +17,44 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProjectController {
 
-    private  final ProjectService projectService;
+    private  final ProjectServiceImpl projectServiceImpl;
 
     @GetMapping
     public ResponseEntity<List<ProjectSummaryResponse>> getMyProjects()
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
-        return ResponseEntity.ok(projectService.getUserProjects(userId));
+        Long userId=1L;
+        return ResponseEntity.ok(projectServiceImpl.getUserProjects(userId));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<ProjectResponse>> getProjectById(@PathVariable BigInteger projectId)
+    @GetMapping("/{projectId}")
+    public ResponseEntity<ProjectResponse> getProjectById(@PathVariable Long projectId)
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
-        return ResponseEntity.ok(projectService.getProjectById(userId,projectId));
+        Long userId=1L;
+        ProjectResponse project =
+                projectServiceImpl.getUserProjectById(userId, projectId);
+
+        return ResponseEntity.ok(project);
     }
 
     @PostMapping
     public ResponseEntity<ProjectResponse> createProject(@RequestBody ProjectRequest projectRequest)
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
-        return  ResponseEntity.status(HttpStatus.CREATED).body(projectService.createProject(userId,projectRequest));
+        Long userId=2L;
+        return  ResponseEntity.status(HttpStatus.CREATED).body(projectServiceImpl.createProject(userId,projectRequest));
     }
 
-    @PatchMapping("/id")
-    public ResponseEntity<ProjectResponse> updateProject(@PathVariable BigInteger projectId, @RequestBody ProjectRequest projectRequest)
+    @PatchMapping("/projectId")
+    public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long projectId, @RequestBody ProjectRequest projectRequest)
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
-        return  ResponseEntity.ok(projectService.updateProject(userId,projectId,projectRequest));
+        Long userId=1L;
+        return  ResponseEntity.ok(projectServiceImpl.updateProject(userId,projectId,projectRequest));
     }
 
-    @DeleteMapping("/id")
-    public ResponseEntity<Void> deleteProject(@PathVariable BigInteger projectId)
+    @DeleteMapping("/projectId")
+    public ResponseEntity<Void> deleteProject(@PathVariable Long projectId)
     {
-        BigInteger userId=new BigInteger(String.valueOf(100));
-        return  ResponseEntity.ok(projectService.deleteProject(userId,projectId));
+        Long userId=1L;
+        projectServiceImpl.deleteProject(userId,projectId);
+        return  ResponseEntity.ok().build();
     }
 }

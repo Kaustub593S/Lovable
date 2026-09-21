@@ -5,16 +5,16 @@ import com.lovable.lovable.dtos.member.ProjectMemberResponse;
 import com.lovable.lovable.dtos.member.UpdateMemberRoleRequest;
 import com.lovable.lovable.enums.ProjectRole;
 
-import java.math.BigInteger;
+
 import java.util.List;
 
 public interface ProjectMemberService {
     
-    List<ProjectMemberResponse> getAllProjectMembers(BigInteger projectId);
+    List<ProjectMemberResponse> getAllProjectMembers(Long projectId);
 
-    ProjectMemberResponse inviteMemberByEmail(InviteMemberRequest inviteMemberRequest);
+    ProjectMemberResponse inviteMemberByEmail(InviteMemberRequest inviteMemberRequest,Long projectId,Long userId);
 
-    ProjectMemberResponse updateMemberRole(BigInteger userId, BigInteger memberId, UpdateMemberRoleRequest memberRole);
+    ProjectMemberResponse updateMemberRole(Long userId, Long memberId, UpdateMemberRoleRequest memberRole);
 
-    Void deleteMember(BigInteger userId, BigInteger memberId);
+    Void deleteMember(Long userId, Long memberId);
 }

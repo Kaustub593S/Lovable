@@ -11,7 +11,7 @@ import java.time.Instant;
 @Setter
 public class ProjectFile {
 
-    private BigInteger id;
+    private Long id;
     private Project projectId;
     private String path;
 

@@ -13,7 +13,7 @@ import java.math.BigInteger;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Plan {
-    private BigInteger id;
+    private Long id;
     private String name;
     private String stripePriceId;
     private Integer maxProjects;

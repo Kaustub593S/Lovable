@@ -2,14 +2,15 @@ package com.lovable.lovable.service;
 
 import com.lovable.lovable.dtos.subscription.CheckoutRequest;
 import com.lovable.lovable.dtos.subscription.CheckoutResponse;
+import com.lovable.lovable.dtos.subscription.PortalResponse;
 import com.lovable.lovable.dtos.subscription.SubscriptionResponse;
 
-import java.math.BigInteger;
+
 
 public interface SubscriptionService {
-    SubscriptionResponse getMySubscription(BigInteger userId);
+    SubscriptionResponse getMySubscription(Long userId);
 
-    CheckoutResponse createCheckoutSessionUrl(BigInteger userId, CheckoutRequest checkoutRequest);
+    CheckoutResponse createCheckoutSessionUrl(Long userId, CheckoutRequest checkoutRequest);
 
-    PortalResponse openCustomerPortal(BigInteger userId);
+    PortalResponse openCustomerPortal(Long userId);
 }

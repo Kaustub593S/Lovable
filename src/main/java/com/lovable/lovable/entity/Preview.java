@@ -15,8 +15,8 @@ import java.time.Instant;
 @Setter
 public class Preview {
 
-    private BigInteger id;
-    private Project projectId;
+    private Long id;
+    private Project project;
     private String namespace;
     private String podName;
     private String previewUrl;

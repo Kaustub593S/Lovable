@@ -15,11 +15,11 @@ import java.time.Instant;
 @AllArgsConstructor
 public class Subscription {
 
-    private BigInteger id;
+    private Long id;
 
-    private User userId;
+    private User user;
 
-    private Plan planId;
+    private Plan plan;
 
     private String stripeCustomerId;
     private String stripeSubscriptionId;

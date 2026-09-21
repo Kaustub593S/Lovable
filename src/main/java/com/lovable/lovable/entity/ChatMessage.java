@@ -14,7 +14,7 @@ import java.time.Instant;
 @Getter
 @Setter
 public class ChatMessage {
-    private BigInteger id;
+    private Long id;
     private ChatSession chatSessionId;
     private MessageRole role;
     private String content;

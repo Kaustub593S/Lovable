@@ -4,17 +4,18 @@ import com.lovable.lovable.dtos.project.ProjectRequest;
 import com.lovable.lovable.dtos.project.ProjectResponse;
 import com.lovable.lovable.dtos.project.ProjectSummaryResponse;
 
-import java.math.BigInteger;
+
 import java.util.List;
 
 public interface ProjectService {
-    List<ProjectSummaryResponse> getUserProjects(BigInteger userId);
 
-    List<ProjectResponse> getProjectById(BigInteger userId, BigInteger projectId);
+    List<ProjectSummaryResponse> getUserProjects(Long userId);
 
-    ProjectResponse createProject(BigInteger userId, ProjectRequest projectRequest);
+    ProjectResponse getUserProjectById(Long userId, Long projectId);
 
-    ProjectResponse updateProject(BigInteger userId, BigInteger projectId, ProjectRequest projectRequest);
+    ProjectResponse createProject(Long userId, ProjectRequest projectRequest);
 
-    Void deleteProject(BigInteger userId, BigInteger projectId);
+    ProjectResponse updateProject(Long userId, Long projectId, ProjectRequest projectRequest);
+
+    void deleteProject(Long userId, Long projectId);
 }
